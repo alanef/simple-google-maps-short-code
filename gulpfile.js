@@ -1,4 +1,4 @@
-var project                 = 'simple-google-maps-shortcode-project'; // Project Name.
+var project                 = 'simple-google-maps-short-code'; // Project Name.
 
 
 var gulp = require('gulp');
@@ -25,9 +25,7 @@ gulp.task('zip', (done) => {
 gulp.task('clean', () => {
     return del([
         'dist/composer.*',
-        'dist/vendor/autoload.php',
         'dist/vendor/bin/',
-        'dist/vendor/composer/',
         'dist/vendor/**/.git*',
         'dist/vendor/**/.git*',
         'dist/vendor/**/.travis.yml',
