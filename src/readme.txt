@@ -7,7 +7,7 @@ Tags: google maps, google map, google maps shortcode, shortcode, gmaps, maps, ma
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 5.8
-Stable Tag: 1.4.0
+Stable tag: 1.4.0
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
 
