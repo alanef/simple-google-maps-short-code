@@ -7,7 +7,7 @@ Tags: google maps, google map, google maps shortcode, shortcode, gmaps, maps, ma
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 5.8
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
 
@@ -63,6 +63,9 @@ The maps are cached for 3 months. Caches are automatically cleared (for individu
 3. Added [pw_map address="your address here" key="YOUR API KEY"] to any post or page.
 
 == Changelog ==
+= 1.4.1 =
+* load google maps cookieless to help with GDPR compliance
+
 = 1.4.0 =
 * add donation info to settings
 
