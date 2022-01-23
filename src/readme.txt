@@ -31,7 +31,7 @@ You can have multiple map pins, simply add multiple addresses separated by semi-
 
 == Frequently Asked Questions ==
 
-1. Can I change the width or height of the map?
+=Can I change the width or height of the map?=
 
 Yes, simply supply a width and height parameter:
 
@@ -41,27 +41,35 @@ You can also use percentages for heights:
 
 `[pw_map address="New York City" width="50%" height="200px" key="YOUR API KEY"]`
 
-2. Can I disable the scroll wheel?
+=Can I disable the scroll wheel?=
 
 Yes, simple add `enablescrollwheel="false"` to the maps shortcode.
 
 `[pw_map address="New York City" enablescrollwheel="false" key="YOUR API KEY"]`
 
-3. Can I disable the map controls?
+=Can I disable the map controls?=
 
 Yes, simple add `disablecontrols="true"` to the shortcode.
 
 `[pw_map address="New York City" disablecontrols="true" key="YOUR API KEY"]`
 
-4. How are the maps cached?
+=How are the maps cached?=
 
-Maps are cached using the WordPress [Transients API](http://codex.wordpress.org/Transients_API), which allows for very simple database-based caching.
+Maps are cached using the WordPress [Transients API](https://developer.wordpress.org/apis/handbook/transients/), which allows for very efficient and WordPress standard database-based caching.
 
 Each time you display a map, the address specified is used to generate a unique md5 hash, which is used for the cache identifier. This means that if you change the address used for your map, the cache will be refreshed.
 
-5. How often do caches refresh?
+=How often do caches refresh?=
 
 The maps are cached for 3 months. Caches are automatically cleared (for individual maps) when you change the address in the shortcode.
+
+=Can I specify multiple pins?=
+
+Yes simply separate addresses with a semi-colon ;  the map will center on the first pin
+
+=How to I change the initial zoom?=
+
+Initial zoom can be controlled with teh shortcode  option zoom=   the default is zoom=15  use for instance zoom=10 to zoom out
 
 == Installation ==
 
