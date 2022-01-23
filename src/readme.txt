@@ -67,9 +67,13 @@ The maps are cached for 3 months. Caches are automatically cleared (for individu
 
 Yes simply separate addresses with a semi-colon ;  the map will center on the first pin
 
-=How to I change the initial zoom?=
+`[pw_map address="New York City;New Jersey" zoom="8" key="YOUR API KEY"]`
+
+=How do I change the initial zoom?=
 
 Initial zoom can be controlled with teh shortcode  option zoom=   the default is zoom=15  use for instance zoom=10 to zoom out
+
+`[pw_map address="New York City" zoom="8" key="YOUR API KEY"]`
 
 == Installation ==
 
