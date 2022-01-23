@@ -1,4 +1,4 @@
-# Copyright (C) 2021 simple-google-maps-short-code
+# Copyright (C) 2022 simple-google-maps-short-code
 # This file is distributed under the same license as the simple-google-maps-short-code package.
 msgid ""
 msgstr ""
@@ -13,24 +13,184 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/simple-google-map-short-code.php:108
+#: src/simple-google-map-short-code.php:125
 msgid "This Google Map cannot be loaded because the maps API does not appear to be loaded"
 msgstr ""
 
-#: src/simple-google-map-short-code.php:169
-msgid "Unable to contact Google API service."
+#: src/simple-google-map-short-code.php:76
+msgid "This notice from Simple Google Maps Shortcode plugin is only shown to admins!"
 msgstr ""
 
-#: src/simple-google-map-short-code.php:165
-msgid "Something went wrong while retrieving your map, please ensure you have entered the short code correctly."
+#: src/simple-google-map-short-code.php:157
+msgid "Google maps not accessible."
 msgstr ""
 
 #: src/simple-google-map-short-code.php:163
+msgid "Google returned bad data."
+msgstr ""
+
+#: src/simple-google-map-short-code.php:191
+msgid "Unable to contact Google API service."
+msgstr ""
+
+#: src/simple-google-map-short-code.php:187
+msgid "Something went wrong while retrieving your map, please ensure you have entered the short code correctly."
+msgstr ""
+
+#: src/simple-google-map-short-code.php:185
 msgid "Invalid request. Did you enter an address?"
 msgstr ""
 
-#: src/simple-google-map-short-code.php:161
-msgid "No location found for the entered address."
+#: src/simple-google-map-short-code.php:183
+msgid "No location found for the entered address: "
+msgstr ""
+
+#: src/simple-google-map-short-code.php:224
+msgid "Gift a Donation"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:226
+msgid "Hi, I'm Alan and I maintain this free plugin, and I hope it solves your problems."
+msgstr ""
+
+#: src/simple-google-map-short-code.php:228
+msgid "It would really help me know that others find it useful and a great way of doing this is to gift me a small donation"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:230
+msgid "Gift a donation: select your desired option"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:232
+msgid "My Bitcoin donation wallet"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:234
+msgid "Gift a donation via PayPal"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:236
+msgid "My Bitcoin Cash address"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:238
+msgid "My Ethereum address"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:240
+msgid "My Dogecoin address"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:242
+msgid "Contribute"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:244
+msgid "Contribute to the Open Source Project in other ways"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:246
+msgid "Submit a review"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:248
+msgid "Translate to your language"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:250
+msgid "SUBMIT A REVIEW"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:252
+msgid "If you are happy with the plugin then we would love a review. Even if you are not so happy feedback is always useful, but if you have issues we would love you to make a support request first so we can try and help."
+msgstr ""
+
+#: src/simple-google-map-short-code.php:254
+msgid "SUPPORT FORUM"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:256
+msgid "Providing some translations for a plugin is very easy and can be done via the WordPress system. You can easily contribute to the community and you don't need to translate it all."
+msgstr ""
+
+#: src/simple-google-map-short-code.php:258
+msgid "TRANSLATE INTO YOUR LANGUAGE"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:260
+msgid "As an open source project you are welcome to contribute to the development of the software if you can. The development plugin is hosted on GitHub."
+msgstr ""
+
+#: src/simple-google-map-short-code.php:262
+msgid "CONTRIBUTE ON GITHUB"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:264
+msgid "Get Support"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:266
+msgid "WordPress SUPPORT FORUM"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:268
+msgid "Hi I'm Alan and I support the free plugin"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:270
+msgid "for you.  You have been using the plugin for a while now and WordPress has probably been through several updates by now. So I'm asking if you can help keep this plugin free, by donating a very small amount of cash. If you can that would be a fantastic help to keeping this plugin updated."
+msgstr ""
+
+#: src/simple-google-map-short-code.php:272
+msgid "Donate via this page"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:274
+msgid "Remind me later"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:276
+msgid "I have already donated"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:278
+msgid "I don't want to donate, dismiss this notice permanently"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:280
+msgid "Hi I'm Alan and you have been using this plugin"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:282
+msgid "for a while - that is awesome! Could you please do me a BIG favor and give it a 5-star rating on WordPress? Just to help spread the word and boost my motivation.."
+msgstr ""
+
+#: src/simple-google-map-short-code.php:284
+msgid "OK, you deserve it"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:286
+msgid "Maybe later"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:288
+msgid "Already done"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:290
+msgid "No thanks, dismiss this request"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:292
+msgid "Donate to Support"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:294
+msgid "Settings"
+msgstr ""
+
+#: src/simple-google-map-short-code.php:296
+msgid "Help Develop"
 msgstr ""
 
 #: src/includes/class-pw-map-settings.php:31, src/includes/class-pw-map-settings.php:44
@@ -49,18 +209,18 @@ msgstr ""
 msgid "Maps are displayed with the [pw_map] shortcode:"
 msgstr ""
 
-#: src/includes/class-pw-map-settings.php:55
+#: src/includes/class-pw-map-settings.php:56
 msgid "[pw_map address=\"New York City\" key=\"YOUR API KEY\"]"
 msgstr ""
 
-#: src/includes/class-pw-map-settings.php:57
+#: src/includes/class-pw-map-settings.php:59
 msgid "Google now requires that new accounts use an API key. You can register a free API key"
 msgstr ""
 
-#: src/includes/class-pw-map-settings.php:60
+#: src/includes/class-pw-map-settings.php:62
 msgid "Use this link to Google to get an API key"
 msgstr ""
 
-#: src/includes/class-pw-map-settings.php:61
+#: src/includes/class-pw-map-settings.php:64
 msgid "The plugin is Block Editor compatible, just use the shortcode block e.g. "
 msgstr ""
