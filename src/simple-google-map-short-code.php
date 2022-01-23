@@ -3,7 +3,7 @@
 Plugin Name: Simple Shortcode for Google Maps
 Plugin URI: https://wordpress.org/plugins/simple-google-maps-short-code/
 Description: Adds a simple Google Maps shortcode to any post, page or widget.
-Version: 1.5
+Version: 1.5.1
 Requires at least: 4.6
 Requires PHP: 5.6
 Author: Alan Fuller
@@ -58,17 +58,24 @@ function pw_map_shortcode( $atts ) {
 			'zoom'              => 15,
 			'disablecontrols'   => 'false',
 			'key'               => '',
+			'force'             => 'false',
 		),
 		$atts
 	);
 
+	if ( 'true' === $atts['force'] ) {
+		$force = true;
+	} else {
+		$force = false;
+	}
+
 	$address_array = explode( ';', $atts['address'] );
 
 
-	if ( $address_array[0] ) :
+	if ( $address_array[0] ) {
 		$coordinates_array = array();
 		for ( $i = 0; $i < count( $address_array ); $i ++ ) {
-			$coordinates_array[ $i ] = pw_map_get_coordinates( $address_array[ $i ], false, sanitize_text_field( $atts['key'] ) );
+			$coordinates_array[ $i ] = pw_map_get_coordinates( $address_array[ $i ], $force, sanitize_text_field( $atts['key'] ) );
 			if ( ! is_array( $coordinates_array[ $i ] ) ) {
 				$response = '';
 				if ( current_user_can( 'manage_options' ) ) {
@@ -121,9 +128,18 @@ function pw_map_shortcode( $atts ) {
         </script>
 		<?php
 		return ob_get_clean();
-	else :
-		return esc_html__( 'This Google Map cannot be loaded because the maps API does not appear to be loaded', 'simple-google-maps-short-code' );
-	endif;
+	} else {
+		$response = '';
+		if ( current_user_can( 'manage_options' ) ) {
+			$response .= '<div style="background: white;color:red;font-weight:bold; padding: 2rem;"><p style="color:#777;font-weight:normal">';
+			$response .= esc_html__( 'This notice from Simple Google Maps Shortcode plugin is only shown to admins!', 'simple-google-maps-short-code' );
+			$response .= '</p><p>';
+			$response .= esc_html__( 'You do not seem to have provided any addresses!', 'simple-google-maps-short-code' );
+			$response .= '</p></div>';
+		}
+
+		return $response;
+	}
 }
 
 add_shortcode( 'pw_map', 'pw_map_shortcode' );
@@ -180,11 +196,12 @@ function pw_map_get_coordinates( $address, $force_refresh = false, $api_key = ''
 				$data = $cache_value;
 
 			} elseif ( $data->status === 'ZERO_RESULTS' ) {
-				return esc_html__( 'No location found for the entered address: ', 'simple-google-maps-short-code' ) . $address;
+				return esc_html__( 'No location found for the entered address:', 'simple-google-maps-short-code' ) . ' ' . $address;
 			} elseif ( $data->status === 'INVALID_REQUEST' ) {
-				return esc_html__( 'Invalid request. Did you enter an address?', 'simple-google-maps-short-code' );
+				return esc_html__( 'Invalid request. Did you enter an address?', 'simple-google-maps-short-code' ) . ' ' . $address;
 			} else {
-				return esc_html__( 'Something went wrong while retrieving your map, please ensure you have entered the short code correctly.', 'simple-google-maps-short-code' );
+				return esc_html__( 'Something went wrong while retrieving your map, please ensure you have entered the short code correctly. Address:', 'simple-google-maps-short-code' ) . ' ' . $address
+				       . ' ' . esc_html__( 'Status:', 'simple-google-maps-short-code' ) . ' ' . $data->status;
 			}
 
 		} else {
