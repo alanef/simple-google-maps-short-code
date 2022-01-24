@@ -41,6 +41,10 @@ msgstr ""
 msgid "Status:"
 msgstr ""
 
+#: src/simple-google-map-short-code.php:204, src/simple-google-map-short-code.php:201
+msgid "Google Msg:"
+msgstr ""
+
 #: src/simple-google-map-short-code.php:201
 msgid "Invalid request. Did you enter an address?"
 msgstr ""

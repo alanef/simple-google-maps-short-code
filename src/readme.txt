@@ -81,7 +81,7 @@ Initial zoom can be controlled with teh shortcode  option zoom=   the default is
 
 `[pw_map address="New York City" zoom="8" key="YOUR API KEY"]`
 
-==Why do I get REQUEST_DENIED error?=
+=Why do I get REQUEST_DENIED error?=
 
 This is likely to be an issue with the authorization you granted to your API key see [Google API REQUEST_DENIED troubleshooting](https://developers.google.com/maps/documentation/places/web-service/faq#why_do_i_keep_receiving_status_request_denied)
 
