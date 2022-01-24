@@ -85,7 +85,10 @@ Initial zoom can be controlled with teh shortcode  option zoom=   the default is
 
 This is likely to be an issue with the authorization you granted to your API key see [Google API REQUEST_DENIED troubleshooting](https://developers.google.com/maps/documentation/places/web-service/faq#why_do_i_keep_receiving_status_request_denied)
 
-It is recommended that you restrict your API key to your domain oor IP address. This can result in issues if you migrate hosting or domain and forget your API key permissions.
+It is recommended that you set an Application Restriction to restrict your API key from others using it.
+
+However restricting the referrer HTTP will cause this error 'API keys with referer restrictions cannot be used with this API', this is because the geoencoding is performed server side nd cached server side, so there is no browser referrer.
+If you get this message change your restriction to IP addresses  (web servers, cron jobs, etc.) using the IP address of your website.
 
 If you restrict your API key to specific APIs make sure you enable at least
 * Maps JavaScript API
