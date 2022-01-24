@@ -198,10 +198,10 @@ function pw_map_get_coordinates( $address, $force_refresh = false, $api_key = ''
 			} elseif ( $data->status === 'ZERO_RESULTS' ) {
 				return esc_html__( 'No location found for the entered address:', 'simple-google-maps-short-code' ) . ' ' . $address;
 			} elseif ( $data->status === 'INVALID_REQUEST' ) {
-				return esc_html__( 'Invalid request. Did you enter an address?', 'simple-google-maps-short-code' ) . ' ' . $address;
+				return esc_html__( 'Invalid request. Did you enter an address?', 'simple-google-maps-short-code' ) . ' ' . $address . ' ' . esc_html__( 'Google Msg:', 'simple-google-maps-short-code' ) . ' ' . $data->error_message;
 			} else {
 				return esc_html__( 'Something went wrong while retrieving your map, please ensure you have entered the short code correctly. Address:', 'simple-google-maps-short-code' ) . ' ' . $address
-				       . ' ' . esc_html__( 'Status:', 'simple-google-maps-short-code' ) . ' ' . $data->status;
+				       . ' ' . esc_html__( 'Status:', 'simple-google-maps-short-code' ) . ' ' . $data->status . ' ' . esc_html__( 'Google Msg:', 'simple-google-maps-short-code' ) . ' ' . $data->error_message;
 			}
 
 		} else {

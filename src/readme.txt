@@ -85,6 +85,12 @@ Initial zoom can be controlled with teh shortcode  option zoom=   the default is
 
 This is likely to be an issue with the authorization you granted to your API key see [Google API REQUEST_DENIED troubleshooting](https://developers.google.com/maps/documentation/places/web-service/faq#why_do_i_keep_receiving_status_request_denied)
 
+It is recommended that you restrict your API key to your domain oor IP address. This can result in issues if you migrate hosting or domain and forget your API key permissions.
+
+If you restrict your API key to specific APIs make sure you enable at least
+* Maps JavaScript API
+* Geocoding API
+
 == Installation ==
 
 1. Activate the plugin.
