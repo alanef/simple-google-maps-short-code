@@ -59,6 +59,12 @@ Maps are cached using the WordPress [Transients API](https://developer.wordpress
 
 Each time you display a map, the address specified is used to generate a unique md5 hash, which is used for the cache identifier. This means that if you change the address used for your map, the cache will be refreshed.
 
+For testing ONLY if you want to not use the cache  then specify  force=true
+
+e.g.
+
+`[pw_map address="New York City" force="true" key="YOUR API KEY"]`
+
 =How often do caches refresh?=
 
 The maps are cached for 3 months. Caches are automatically cleared (for individual maps) when you change the address in the shortcode.
@@ -74,6 +80,10 @@ Yes simply separate addresses with a semi-colon ;  the map will center on the fi
 Initial zoom can be controlled with teh shortcode  option zoom=   the default is zoom=15  use for instance zoom=10 to zoom out
 
 `[pw_map address="New York City" zoom="8" key="YOUR API KEY"]`
+
+==Why do I get REQUEST_DENIED error?=
+
+This is likely to be an issue with the authorization you granted to your API key see [Google API REQUEST_DENIED troubleshooting](https://developers.google.com/maps/documentation/places/web-service/faq#why_do_i_keep_receiving_status_request_denied)
 
 == Installation ==
 
