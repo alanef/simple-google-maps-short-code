@@ -87,7 +87,7 @@ This is likely to be an issue with the authorization you granted to your API key
 
 It is recommended that you set an Application Restriction to restrict your API key from others using it.
 
-However restricting the referrer HTTP will cause this error 'API keys with referer restrictions cannot be used with this API', this is because the geoencoding is performed server side nd cached server side, so there is no browser referrer.
+However restricting the referrer HTTP will cause this error 'API keys with referer restrictions cannot be used with this API', this is because the geoencoding is performed server side and cached server side, so there is no browser referrer.
 If you get this message change your restriction to IP addresses  (web servers, cron jobs, etc.) using the IP address of your website.
 
 If you restrict your API key to specific APIs make sure you enable at least
