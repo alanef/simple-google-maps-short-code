@@ -3,7 +3,7 @@
 Plugin Name: Simple Shortcode for Google Maps
 Plugin URI: https://wordpress.org/plugins/simple-google-maps-short-code/
 Description: Adds a simple Google Maps shortcode to any post, page or widget.
-Version: 1.5.2
+Version: 1.5.3
 Requires at least: 4.6
 Requires PHP: 5.6
 Author: Alan Fuller
@@ -317,6 +317,6 @@ function pw_map_set_strings( $strings ) {
 	return $strings;
 }
 
-add_filter( 'plugindonation_lib_strings', 'pw_map_set_strings' );
+add_filter( 'plugindonation_lib_strings_simple-google-maps-short-code', 'pw_map_set_strings' );
 
 
