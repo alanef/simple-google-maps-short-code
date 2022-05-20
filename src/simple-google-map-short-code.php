@@ -312,6 +312,8 @@ function pw_map_set_strings( $strings ) {
 		// 35
 		esc_html__( 'Help Develop', 'simple-google-maps-short-code' ),
 		// 36
+		esc_html__( 'Buy Me a Coffee makes supporting fun and easy. In just a couple of taps, you can donate (buy me a coffee) and leave a message. You don’t even have to create an account!', 'simple-google-maps-short-code' ),
+		// 37
 	);
 
 	return $strings;
