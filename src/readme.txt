@@ -6,7 +6,7 @@ Contributors: fullworks,alanfuller
 Tags: google maps, google map, google maps shortcode, gmaps, maps, map, gmap, map markers, google maps plugin, map plugin, map builder
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 5.9
+Tested up to: 6.0
 Stable tag: 1.5.3
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
