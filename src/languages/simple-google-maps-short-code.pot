@@ -201,6 +201,10 @@ msgstr ""
 msgid "Help Develop"
 msgstr ""
 
+#: src/simple-google-map-short-code.php:315
+msgid "Buy Me a Coffee makes supporting fun and easy. In just a couple of taps, you can donate (buy me a coffee) and leave a message. You don’t even have to create an account!"
+msgstr ""
+
 #: src/includes/class-pw-map-settings.php:31, src/includes/class-pw-map-settings.php:44
 msgid "Simple Google Maps Settings"
 msgstr ""
