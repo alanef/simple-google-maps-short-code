@@ -31,28 +31,32 @@ You can have multiple map pins, simply add multiple addresses separated by semi-
 
 === All Shortcode Options ===
 Mandatory
-* address  - Description: The address you want pinned - Allowed values: any address that Google can find, multi addresses separated by ;
-* key - Description: Your Google Maps API Key - Allowed values: valid key
+<li>address  - Description: The address you want pinned - Allowed values: any address that Google can find, multi addresses separated by ;</li>
+<li>key - Description: Your Google Maps API Key - Allowed values: valid key</li>
+
 
 Optional ( with default values)
-* width - Description: sets the map width - Default: 100% - Allowed values: size in % or px
-* height - Description: sets the map height - Default: 400px - Allowed values: size in % or px
-* enablescrollwheel - Description: zooming on the map using a mouse scroll wheel  - Default: true - Allowed values: true or false
-* zoom - Description: The initial Map zoom level - Default: 15 - Allowed values: Valid zoom values are numbers from zero up to the supported maximum zoom level
-* disablecontrols - Description: Enables/disables all default UI buttons. May be overridden individually. Does not disable the keyboard controls - Default: false - Allowed values: true or fals
-* force - Description: disable caching of geocoding, only use this on test   - Default: false - Allowed values: true or false
-* zoomcontrol - Description: display the Zoom +/- buttons  - Default: true - Allowed values: true or false
-* nozoom - Description: fixes the zoom level by seeting min and max to the starting zoom  - Default: false - Allowed values: true or false            false
-* gesturehandling - Description: This setting controls how the amp handles gestures on the map. - Default: auto - Allowed values:
-     * "cooperative": Scroll events and one-finger touch gestures scroll the page, and do not zoom or pan the map. Two-finger touch gestures pan and zoom the map. Scroll events with a ctrl key or ⌘ key pressed zoom the map. In this mode the map cooperates with the page.
-     * "greedy": All touch gestures and scroll events pan or zoom the map.
-     * "none": The map cannot be panned or zoomed by user gestures.
-     * "auto": Gesture handling is either cooperative or greedy, depending on whether the page is scrollable or in an iframe.auto  // auto, greedy,cooperative, none
-* maptypeid - Description: Determines the initial map display type - Default: roadmap - Allowed values:
-     * "roadmap": This map type displays a normal street map.
-     * "satellite": This map type displays satellite images.
-     * "hybrid": This map type displays a transparent layer of major streets on satellite images.
-     * "terrain": This map type displays maps with physical features such as terrain and vegetation.
+<li>width - Description: sets the map width - Default: 100% - Allowed values: size in % or px</li>
+<li>height - Description: sets the map height - Default: 400px - Allowed values: size in % or px</li>
+<li>enablescrollwheel - Description: zooming on the map using a mouse scroll wheel  - Default: true - Allowed values: true or false</li>
+<li>zoom - Description: The initial Map zoom level - Default: 15 - Allowed values: Valid zoom values are numbers from zero up to the supported maximum zoom level</li>
+<li>disablecontrols - Description: Enables/disables all default UI buttons. May be overridden individually. Does not disable the keyboard controls - Default: false - Allowed values: true or false</li>
+<li>force - Description: disable caching of geocoding, only use this on test   - Default: false - Allowed values: true or false</li>
+<li>zoomcontrol - Description: display the Zoom +/- buttons  - Default: true - Allowed values: true or false</li>
+<li>nozoom - Description: fixes the zoom level by seeting min and max to the starting zoom  - Default: false - Allowed values: true or false</li>
+<br>
+<li>gesturehandling - Description: This setting controls how the amp handles gestures on the map. - Default: auto - Allowed values:</li>
+     <ul><li>"cooperative": Scroll events and one-finger touch gestures scroll the page, and do not zoom or pan the map. Two-finger touch gestures pan and zoom the map. Scroll events with a ctrl key or ⌘ key pressed zoom the map. In this mode the map cooperates with the page.</li>
+     <li>"greedy": All touch gestures and scroll events pan or zoom the map.</li>
+     <li>"none": The map cannot be panned or zoomed by user gestures.</li>
+     <li>"auto": Gesture handling is either cooperative or greedy, depending on whether the page is scrollable or in an iframe.</li></ul>
+<li>maptypeid - Description: Determines the initial map display type - Default: roadmap - Allowed values:</li>
+     <ul><li>"roadmap": This map type displays a normal street map.</li>
+     <li>"satellite": This map type displays satellite images.</li>
+     <li>"hybrid": This map type displays a transparent layer of major streets on satellite images.</li>
+     <li>"terrain": This map type displays maps with physical features such as terrain and vegetation.</li></ul>
+
+
 
 == Frequently Asked Questions ==
 
@@ -119,25 +123,9 @@ If you restrict your API key to specific APIs make sure you enable at least
 * Maps JavaScript API
 * Geocoding API
 
-=Are there any filters for developers?=
-Yes there are a coupel of useful filters
-`sgmsc_atts`
-Allows filtering of shortcode atttributes this allows you do dynamic allocation e.g. if you code things via a do_shortcode()  or if you want to fix something site wide e.g
-`add_filter('sgmsc_atts','my_atts_function',10,1);
- function my_atts_function($atts) {
-    $atts['nozoom'] = 'true';   // force nozoom everywhere
-    return $atts;
- }`
-and
-`sgmsc_map_options`
-Allows adding javascript options that the plugin doesn't support via the shortcode
-`add_filter('sgmsc_map_options','my_options_function',10,1);
- function my_options_function($options) {
-    $options['fullscreenControl'] = 0;   // note use 0 or 1 of boolean
-    return $options;
- }`
-Will disable full screen control
-see all options here [Google Javascript Map Options](https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions)
+= Are there any filters for developers? =
+
+For developer documentation on filters visit here [https://fullworksplugins.com/docs/developers-simple-shortcode-for-google-maps/](https://fullworksplugins.com/docs/developers-simple-shortcode-for-google-maps/)
 
 == Installation ==
 
