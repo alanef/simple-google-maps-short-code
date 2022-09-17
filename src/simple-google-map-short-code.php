@@ -3,12 +3,15 @@
 Plugin Name: Simple Shortcode for Google Maps
 Plugin URI: https://wordpress.org/plugins/simple-google-maps-short-code/
 Description: Adds a simple Google Maps shortcode to any post, page or widget.
-Version: 1.5.3
+Version: 1.5.4
 Requires at least: 4.6
 Requires PHP: 5.6
 Author: Alan Fuller
 Author URI: https://fullworks.net
+Text Domain: simple-google-maps-shortcode
+Domain Path: /languages
 */
+
 
 if ( ! defined( 'WPINC' ) ) {
 	die;
@@ -59,6 +62,10 @@ function pw_map_shortcode( $atts ) {
 			'disablecontrols'   => 'false',
 			'key'               => '',
 			'force'             => 'false',
+			'zoomcontrol'       => 'true',
+			'nozoom'            => 'false',
+			'gesturehandling'   => 'auto',  // auto, greedy,cooperative, none
+			'maptypeid'         => 'roadmap',  // roadmap, satellite, hybrid, terrain
 		),
 		$atts
 	);
@@ -69,7 +76,15 @@ function pw_map_shortcode( $atts ) {
 		$force = false;
 	}
 
+
+    $atts= apply_filters( 'sgmsc_atts', $atts );
+
+
 	$address_array = explode( ';', $atts['address'] );
+// remove special characters
+	$address_array = array_map( function ( $string ) {
+		return preg_replace( "/[^A-Za-z0-9,\- ]/", '', $string );
+	}, $address_array );
 
 
 	if ( $address_array[0] ) {
@@ -93,6 +108,19 @@ function pw_map_shortcode( $atts ) {
 
 		$map_id = uniqid( 'pw_map_' ); // generate a unique ID for this map
 
+		$map_options = array(
+			'zoom'             => $atts['zoom'],
+			'scrollwheel'      => ( 'true' === strtolower( $atts['enablescrollwheel'] ) ) ? '1' : '0',
+			'disableDefaultUI' => ( 'true' === strtolower( $atts['disablecontrols'] ) ) ? '1' : '0',
+			'zoomControl'      => ( 'true' === strtolower( $atts['zoomcontrol'] ) ) ? '1' : '0',
+     		'mapTypeId'        => strtolower( $atts['maptypeid'] ),
+			'gestureHandling'  => strtolower( $atts['gesturehandling'] ),
+		);
+		if ( 'true' === strtolower( $atts['nozoom'] ) ) {
+			$map_options['minZoom'] = $atts['zoom'];
+			$map_options['maxZoom'] = $atts['zoom'];
+		}
+		$map_options_json = wp_json_encode( apply_filters( 'sgmsc_map_options', $map_options ), JSON_NUMERIC_CHECK );
 		ob_start(); ?>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo sanitize_text_field( $atts['key'] ); ?>"
@@ -104,13 +132,9 @@ function pw_map_shortcode( $atts ) {
 
             function pw_run_map_<?php echo $map_id; ?>() {
                 var center = new google.maps.LatLng("<?php echo $coordinates_array[0]['lat']; ?>", "<?php echo $coordinates_array[0]['lng']; ?>");
-                var map_options = {
-                    zoom: <?php echo $atts['zoom']; ?>,
-                    center: center,
-                    scrollwheel: <?php echo 'true' === strtolower( $atts['enablescrollwheel'] ) ? '1' : '0'; ?>,
-                    disableDefaultUI: <?php echo 'true' === strtolower( $atts['disablecontrols'] ) ? '1' : '0'; ?>,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                }
+                var map_options = <?php echo $map_options_json; ?>;
+                map_options['center'] = center;
+                console.log(map_options)
                 map_<?php echo $map_id; ?> = new google.maps.Map(document.getElementById("<?php echo $map_id; ?>"), map_options);
 				<?php for ( $i = 0; $i < count( $address_array ); $i ++ ) {
 				if ( ! is_array( $coordinates_array[ $i ] ) ) {

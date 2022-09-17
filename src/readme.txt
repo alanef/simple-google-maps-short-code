@@ -1,4 +1,4 @@
-=== Simple Shortcode for GoogleMaps ===
+=== Simple Shortcode for Google Maps ===
 Contributors: alanfuller, fullworks
 Donate Link: https://www.paypal.com/donate/?hosted_button_id=UGRBY5CHSD53Q
 Author URI: https://fullworks.net
@@ -7,7 +7,7 @@ Tags: google maps, google map, google maps shortcode, gmaps, maps, map, gmap, ma
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 6.0
-Stable tag: 1.5.3
+Stable tag: 1.5.4
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
 
@@ -28,6 +28,31 @@ Google now requires that new accounts use an API key. You can register a free AP
 You can have multiple map pins, simply add multiple addresses separated by semi-colon `;`
 
 `[pw_map address="Statue of Liberty National Monument NYC;Empire State Building, New York, NY, USA" key="YOUR API KEY"]`
+
+=== All Shortcode Options ===
+Mandatory
+* address  - Description: The address you want pinned - Allowed values: any address that Google can find, multi addresses separated by ;
+* key - Description: Your Google Maps API Key - Allowed values: valid key
+
+Optional ( with default values)
+* width - Description: sets the map width - Default: 100% - Allowed values: size in % or px
+* height - Description: sets the map height - Default: 400px - Allowed values: size in % or px
+* enablescrollwheel - Description: zooming on the map using a mouse scroll wheel  - Default: true - Allowed values: true or false
+* zoom - Description: The initial Map zoom level - Default: 15 - Allowed values: Valid zoom values are numbers from zero up to the supported maximum zoom level
+* disablecontrols - Description: Enables/disables all default UI buttons. May be overridden individually. Does not disable the keyboard controls - Default: false - Allowed values: true or fals
+* force - Description: disable caching of geocoding, only use this on test   - Default: false - Allowed values: true or false
+* zoomcontrol - Description: display the Zoom +/- buttons  - Default: true - Allowed values: true or false
+* nozoom - Description: fixes the zoom level by seeting min and max to the starting zoom  - Default: false - Allowed values: true or false            false
+* gesturehandling - Description: This setting controls how the amp handles gestures on the map. - Default: auto - Allowed values:
+     * "cooperative": Scroll events and one-finger touch gestures scroll the page, and do not zoom or pan the map. Two-finger touch gestures pan and zoom the map. Scroll events with a ctrl key or ⌘ key pressed zoom the map. In this mode the map cooperates with the page.
+     * "greedy": All touch gestures and scroll events pan or zoom the map.
+     * "none": The map cannot be panned or zoomed by user gestures.
+     * "auto": Gesture handling is either cooperative or greedy, depending on whether the page is scrollable or in an iframe.auto  // auto, greedy,cooperative, none
+* maptypeid - Description: Determines the initial map display type - Default: roadmap - Allowed values:
+     * "roadmap": This map type displays a normal street map.
+     * "satellite": This map type displays satellite images.
+     * "hybrid": This map type displays a transparent layer of major streets on satellite images.
+     * "terrain": This map type displays maps with physical features such as terrain and vegetation.
 
 == Frequently Asked Questions ==
 
@@ -77,7 +102,7 @@ Yes simply separate addresses with a semi-colon ;  the map will center on the fi
 
 =How do I change the initial zoom?=
 
-Initial zoom can be controlled with teh shortcode  option zoom=   the default is zoom=15  use for instance zoom=10 to zoom out
+Initial zoom can be controlled with the shortcode  option zoom=   the default is zoom=15  use for instance zoom=10 to zoom out
 
 `[pw_map address="New York City" zoom="8" key="YOUR API KEY"]`
 
@@ -94,6 +119,26 @@ If you restrict your API key to specific APIs make sure you enable at least
 * Maps JavaScript API
 * Geocoding API
 
+=Are there any filters for developers?=
+Yes there are a coupel of useful filters
+`sgmsc_atts`
+Allows filtering of shortcode atttributes this allows you do dynamic allocation e.g. if you code things via a do_shortcode()  or if you want to fix something site wide e.g
+`add_filter('sgmsc_atts','my_atts_function',10,1);
+ function my_atts_function($atts) {
+    $atts['nozoom'] = 'true';   // force nozoom everywhere
+    return $atts;
+ }`
+and
+`sgmsc_map_options`
+Allows adding javascript options that the plugin doesn't support via the shortcode
+`add_filter('sgmsc_map_options','my_options_function',10,1);
+ function my_options_function($options) {
+    $options['fullscreenControl'] = 0;   // note use 0 or 1 of boolean
+    return $options;
+ }`
+Will disable full screen control
+see all options here [Google Javascript Map Options](https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions)
+
 == Installation ==
 
 1. Activate the plugin.
@@ -101,6 +146,11 @@ If you restrict your API key to specific APIs make sure you enable at least
 3. Added [pw_map address="your address here" key="YOUR API KEY"] to any post or page.
 
 == Changelog ==
+= 1.5.4 =
+* add filters dor developers
+* add option to disable zoom
+* remove special characters from address that can break Google
+
 = 1.5.3 =
 * update donation library
 
