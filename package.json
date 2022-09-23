@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@wordpress/scripts": "^22.1.0",
     "del": "6.1.1",
     "gulp": "latest",
     "gulp-directory-sync": "latest",
@@ -15,11 +16,19 @@
   "name": "simple-google-maps-shortcode-project",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "Alan Fuller <alan@fullworks.net>",
   "license": "GPL",
-  "description": ""
+  "description": "",
+  "scripts": {
+    "build": "wp-scripts build",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "start": "wp-scripts start"
+  },
+  "dependencies": {
+  }
 }
