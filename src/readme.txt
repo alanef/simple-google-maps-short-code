@@ -6,7 +6,7 @@ Contributors: fullworks,alanfuller
 Tags: google maps, google map, google maps shortcode, gmaps, maps, map, gmap, map markers, google maps plugin, map plugin, map builder
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 6.0
+Tested up to: 6.1
 Stable tag: 1.5.4
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
@@ -135,74 +135,8 @@ For developer documentation on filters visit here [https://fullworksplugins.com/
 
 == Changelog ==
 = 1.5.4 =
-* add filters dor developers
+* add filters for developers
 * add option to disable zoom
 * remove special characters from address that can break Google
 
-= 1.5.3 =
-* update donation library
-
-= 1.5.2 =
-* Further improve error output to assist problem resolution
-
-= 1.5.1 =
-* Improve error output to assist problem resolution
-
-= 1.5 =
-* Allow multiple address pins
-
-= 1.4.1 =
-* load google maps cookieless to help with GDPR compliance
-
-= 1.4.0 =
-* add donation info to settings
-
-= 1.3.3 =
-* Fix block editor issue
-
-= 1.3.2 =
-
-* Fix: few API key related issues
-
-= 1.3.1 =
-
-* Fix: API key was not passed to the pw_map_get_coordinates() function
-
-= 1.3 =
-
-* Added `key` parameter to the [pw_map] shortcode.
-
-= 1.2 =
-
-* Added missing load_plugin_textdomain()
-* Changed textdomain for language packs
-
-= 1.1.2 =
-
-* Fixed a bug with the zoom parameter not working
-
-= 1.1.1 =
-
-* Fixed a bug with sites on HTTPS
-
-= 1.1 =
-
-* Added support for disabling map controls via disablecontrols="true", thanks to Alex Hochberger
-* Added support for disabling the scroll wheel zoom via enablescrollwheel="false", thanks to Alex Hochberger
-
-= 1.0.3 =
-
-* Fixed a conflict with the Live Composer plugin.
-
-= 1.0.2 =
-
-* Updated Google Maps API to fix broken maps after version 2 was deprecated on March 8, 2013
-* Improved error responses
-
-= 1.0.1 =
-
-* Added CSS to fix a problem with responsive themes
-
-= 1.0 =
-
-* First release!
+[Full Change History](https://plugins.trac.wordpress.org/browser/simple-google-maps-shortcode/trunk/changelog.txt)

@@ -4,3 +4,5 @@ dist/
 zipped/
 node_modules/
 src/vendor/
+/src/composer.lock
+/build/
