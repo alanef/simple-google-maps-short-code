@@ -83,7 +83,7 @@ function pw_map_shortcode( $atts ) {
 	$address_array = explode( ';', $atts['address'] );
 // remove special characters
 	$address_array = array_map( function ( $string ) {
-		return preg_replace( "/[^A-Za-z0-9,\- ]/", '', $string );
+		return preg_replace( "/[^A-Za-z0-9,\-. ]/", '', $string );
 	}, $address_array );
 
 

@@ -1,6 +1,9 @@
 == Changelog ==
+= 1.5.5 =
+* allow . (dot) in addresses so coordinates can be used
+
 = 1.5.4 =
-* add filters dor developers
+* add filters for developers
 * add option to disable zoom
 * remove special characters from address that can break Google
 

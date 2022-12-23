@@ -7,7 +7,7 @@ Tags: google maps, google map, google maps shortcode, gmaps, maps, map, gmap, ma
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 6.1
-Stable tag: 1.5.4
+Stable tag: 1.5.5
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
 
@@ -134,9 +134,12 @@ For developer documentation on filters visit here [https://fullworksplugins.com/
 3. Added [pw_map address="your address here" key="YOUR API KEY"] to any post or page.
 
 == Changelog ==
+= 1.5.5 =
+* allow . (dot) in addresses so coordinates can be used
+
 = 1.5.4 =
 * add filters for developers
 * add option to disable zoom
 * remove special characters from address that can break Google
 
-[Full Change History](https://plugins.trac.wordpress.org/browser/simple-google-maps-shortcode/trunk/changelog.txt)
+[Full Change History](https://plugins.svn.wordpress.org/simple-google-maps-short-code/trunk/changelog.txt)
