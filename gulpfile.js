@@ -9,7 +9,7 @@ var gutil = require('gulp-util');
 var dirSync = require( 'gulp-directory-sync' );
 var wpPot = require('gulp-wp-pot');
 var sort = require('gulp-sort');
-var notify = require("gulp-notify");
+
 
 gulp.task('zip', (done) => {
     gulp.src('dist/**/*')
@@ -42,22 +42,20 @@ gulp.task('clean', () => {
 
 gulp.task('sync', () => {
     return gulp.src('.', {allowEmpty: true})
-        .pipe(dirSync('src', 'dist', {printSummary: true}))
+        .pipe(dirSync('simple-google-maps-short-code', 'dist', {printSummary: true}))
         .on('error', gutil.log);
 });
 
 gulp.task('translate', () => {
-    return gulp.src(['src/**/*.php', '!src/{vendor,vendor/**}'])
+    return gulp.src(['simple-google-maps-short-code/**/*.php', '!simple-google-maps-short-code/{vendor,vendor/**}'])
         .pipe(sort())
         .pipe(wpPot({
             domain: project,
             package: project
         }))
         .on('error', gutil.log)
-        .pipe(gulp.dest('src/languages/' + project + '.pot'))
-        .pipe(gulp.dest('dist/languages/' + project + '.pot'))
-        .pipe(notify({message: 'TASK: "translate" Completed! 💯', onLast: true}));
-
+        .pipe(gulp.dest('simple-google-maps-short-code/languages/' + project + '.pot'))
+        .pipe(gulp.dest('dist/languages/' + project + '.pot'));
 });
 
 

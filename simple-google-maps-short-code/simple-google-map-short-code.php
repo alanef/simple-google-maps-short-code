@@ -77,7 +77,7 @@ function pw_map_shortcode( $atts ) {
 	}
 
 
-    $atts= apply_filters( 'sgmsc_atts', $atts );
+	$atts = apply_filters( 'sgmsc_atts', $atts );
 
 
 	$address_array = explode( ';', $atts['address'] );
@@ -113,7 +113,7 @@ function pw_map_shortcode( $atts ) {
 			'scrollwheel'      => ( 'true' === strtolower( $atts['enablescrollwheel'] ) ) ? '1' : '0',
 			'disableDefaultUI' => ( 'true' === strtolower( $atts['disablecontrols'] ) ) ? '1' : '0',
 			'zoomControl'      => ( 'true' === strtolower( $atts['zoomcontrol'] ) ) ? '1' : '0',
-     		'mapTypeId'        => strtolower( $atts['maptypeid'] ),
+			'mapTypeId'        => strtolower( $atts['maptypeid'] ),
 			'gestureHandling'  => strtolower( $atts['gesturehandling'] ),
 		);
 		if ( 'true' === strtolower( $atts['nozoom'] ) ) {
@@ -123,32 +123,32 @@ function pw_map_shortcode( $atts ) {
 		$map_options_json = wp_json_encode( apply_filters( 'sgmsc_map_options', $map_options ), JSON_NUMERIC_CHECK );
 		ob_start(); ?>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo sanitize_text_field( $atts['key'] ); ?>"
+        <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo esc_attr( $atts['key'] ); ?>"
                 type="text/javascript"></script>
         <div class="pw_map_canvas" id="<?php echo esc_attr( $map_id ); ?>"
              style="height: <?php echo esc_attr( $atts['height'] ); ?>; width: <?php echo esc_attr( $atts['width'] ); ?>"></div>
         <script type="text/javascript">
-            var map_<?php echo $map_id; ?>;
+            var map_<?php echo esc_attr( $map_id ); ?>;
 
-            function pw_run_map_<?php echo $map_id; ?>() {
-                var center = new google.maps.LatLng("<?php echo $coordinates_array[0]['lat']; ?>", "<?php echo $coordinates_array[0]['lng']; ?>");
-                var map_options = <?php echo $map_options_json; ?>;
+            function pw_run_map_<?php echo esc_attr( $map_id ); ?>() {
+                var center = new google.maps.LatLng("<?php echo esc_attr( $coordinates_array[0]['lat'] ); ?>", "<?php echo esc_attr( $coordinates_array[0]['lng'] ); ?>");
+                var map_options = <?php echo esc_html( $map_options_json ); ?>;
                 map_options['center'] = center;
                 console.log(map_options)
-                map_<?php echo $map_id; ?> = new google.maps.Map(document.getElementById("<?php echo $map_id; ?>"), map_options);
+                map_<?php echo esc_attr( $map_id ); ?> = new google.maps.Map(document.getElementById("<?php echo esc_attr( $map_id ); ?>"), map_options);
 				<?php for ( $i = 0; $i < count( $address_array ); $i ++ ) {
 				if ( ! is_array( $coordinates_array[ $i ] ) ) {
 					continue;
 				} ?>
-                var location_<?php echo $i; ?> = new google.maps.LatLng("<?php echo $coordinates_array[ $i ]['lat']; ?>", "<?php echo $coordinates_array[ $i ]['lng']; ?>");
-                var marker_<?php echo $i; ?> = new google.maps.Marker({
-                    position: location_<?php echo $i; ?>,
-                    map: map_<?php echo $map_id; ?>
+                var location_<?php echo (int) $i; ?> = new google.maps.LatLng("<?php echo esc_attr( $coordinates_array[ $i ]['lat'] ); ?>", "<?php echo esc_attr( $coordinates_array[ $i ]['lng'] ); ?>");
+                var marker_<?php echo (int) $i; ?> = new google.maps.Marker({
+                    position: location_<?php echo (int) $i; ?>,
+                    map: map_<?php echo esc_attr( $map_id ); ?>
                 });
 				<?php } ?>
             }
 
-            pw_run_map_<?php echo $map_id; ?>();
+            pw_run_map_<?php echo esc_attr( $map_id ); ?>();
         </script>
 		<?php
 		return ob_get_clean();

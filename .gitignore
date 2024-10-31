@@ -3,6 +3,6 @@
 dist/
 zipped/
 node_modules/
-src/vendor/
-/src/composer.lock
+simple-google-maps-short-code/vendor/
+/simple-google-maps-short-code/composer.lock
 /build/

@@ -62,7 +62,7 @@ class pw_map_settings {
                             ><?php esc_html_e( 'Use this link to Google to get an API key', 'simple-google-maps-short-code' ); ?></a>
                         </p>
                         <p><?php esc_html_e( 'The plugin is Block Editor compatible, just use the shortcode block e.g. ', 'simple-google-maps-short-code' ); ?></p>
-                        <img src="<?php echo plugin_dir_url( __FILE__ ) . 'images/shortcode-block.png'; ?>">
+                        <img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) ) . 'images/shortcode-block.png'; ?>">
                     </td>
                 </tr>
                 </tbody>
