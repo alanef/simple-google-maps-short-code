@@ -1,7 +1,7 @@
 === Simple Shortcode for Google Maps ===
 Contributors: alanfuller, fullworks
-Donate Link: https://www.paypal.com/donate/?hosted_button_id=UGRBY5CHSD53Q
-Author URI: https://fullworks.net
+Donate link: https://ko-fi.com/wpalan
+Author URI: https://fullworks.net start
 Contributors: fullworks,alanfuller
 Tags: google maps, google maps shortcode, gmaps, maps, google maps plugin
 License: GPLv2 or later
@@ -135,7 +135,7 @@ For developer documentation on filters visit here [https://fullworksplugins.com/
 
 == Changelog ==
 = 1.6 =
-* escape all output to better protect against CSRF
+* escape output to better protect against CSRF ans XSS exploits
 
 = 1.5.4 =
 * add filters for developers

@@ -4,5 +4,3 @@ dist/
 zipped/
 node_modules/
 simple-google-maps-short-code/vendor/
-/simple-google-maps-short-code/composer.lock
-/build/

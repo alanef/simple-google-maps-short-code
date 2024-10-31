@@ -7,6 +7,11 @@
 use AlanEFPluginDonation\PluginDonation;
 
 class pw_map_settings {
+	/**
+	 * @var PluginDonation
+	 */
+	private $donation;
+
 	public function __construct() {
 
 		if ( is_admin() ) {

@@ -9,6 +9,8 @@ Requires PHP: 5.6
 Author: Alan Fuller
 Author URI: https://fullworks.net
 Text Domain: simple-google-maps-short-code
+License:           GPL-2.0+
+License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
 Domain Path: /languages
 */
 
@@ -120,8 +122,7 @@ function pw_map_shortcode( $atts ) {
 			$map_options['minZoom'] = $atts['zoom'];
 			$map_options['maxZoom'] = $atts['zoom'];
 		}
-		$map_options_json = wp_json_encode( apply_filters( 'sgmsc_map_options', $map_options ), JSON_NUMERIC_CHECK );
-		ob_start(); ?>
+        ob_start(); ?>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo esc_attr( $atts['key'] ); ?>"
                 type="text/javascript"></script>
@@ -131,8 +132,8 @@ function pw_map_shortcode( $atts ) {
             var map_<?php echo esc_attr( $map_id ); ?>;
 
             function pw_run_map_<?php echo esc_attr( $map_id ); ?>() {
-                var center = new google.maps.LatLng("<?php echo esc_attr( $coordinates_array[0]['lat'] ); ?>", "<?php echo esc_attr( $coordinates_array[0]['lng'] ); ?>");
-                var map_options = <?php echo esc_html( $map_options_json ); ?>;
+                var center = new google.maps.LatLng("<?php echo esc_html( $coordinates_array[0]['lat'] ); ?>", "<?php echo esc_html( $coordinates_array[0]['lng'] ); ?>");
+                var map_options = <?php echo wp_json_encode( apply_filters( 'sgmsc_map_options', $map_options ), JSON_NUMERIC_CHECK|JSON_HEX_QUOT|JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS );?>;
                 map_options['center'] = center;
                 console.log(map_options)
                 map_<?php echo esc_attr( $map_id ); ?> = new google.maps.Map(document.getElementById("<?php echo esc_attr( $map_id ); ?>"), map_options);
@@ -140,7 +141,7 @@ function pw_map_shortcode( $atts ) {
 				if ( ! is_array( $coordinates_array[ $i ] ) ) {
 					continue;
 				} ?>
-                var location_<?php echo (int) $i; ?> = new google.maps.LatLng("<?php echo esc_attr( $coordinates_array[ $i ]['lat'] ); ?>", "<?php echo esc_attr( $coordinates_array[ $i ]['lng'] ); ?>");
+                var location_<?php echo (int) $i; ?> = new google.maps.LatLng("<?php echo esc_html( $coordinates_array[ $i ]['lat'] ); ?>", "<?php echo esc_html( $coordinates_array[ $i ]['lng'] ); ?>");
                 var marker_<?php echo (int) $i; ?> = new google.maps.Marker({
                     position: location_<?php echo (int) $i; ?>,
                     map: map_<?php echo esc_attr( $map_id ); ?>
