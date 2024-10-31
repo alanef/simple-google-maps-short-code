@@ -3,11 +3,11 @@ Contributors: alanfuller, fullworks
 Donate Link: https://www.paypal.com/donate/?hosted_button_id=UGRBY5CHSD53Q
 Author URI: https://fullworks.net
 Contributors: fullworks,alanfuller
-Tags: google maps, google map, google maps shortcode, gmaps, maps, map, gmap, map markers, google maps plugin, map plugin, map builder
+Tags: google maps, google maps shortcode, gmaps, maps, google maps plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 6.1
-Stable tag: 1.5.4
+Tested up to: 6.7
+Stable tag: 1.6
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
 
@@ -134,6 +134,9 @@ For developer documentation on filters visit here [https://fullworksplugins.com/
 3. Added [pw_map address="your address here" key="YOUR API KEY"] to any post or page.
 
 == Changelog ==
+= 1.6 =
+* escape all output to better protect against CSRF
+
 = 1.5.4 =
 * add filters for developers
 * add option to disable zoom
