@@ -127,6 +127,10 @@ If you restrict your API key to specific APIs make sure you enable at least
 
 For developer documentation on filters visit here [https://fullworksplugins.com/docs/developers-simple-shortcode-for-google-maps/](https://fullworksplugins.com/docs/developers-simple-shortcode-for-google-maps/)
 
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/simple-google-maps-short-code)
+
 == Installation ==
 
 1. Activate the plugin.

@@ -1,6 +1,6 @@
 # Copyright (C) 2024 simple-google-maps-short-code
 # This file is distributed under the same license as the simple-google-maps-short-code package.
-msgid ""
+msgid ""b
 msgstr ""
 "Project-Id-Version: simple-google-maps-short-code\n"
 "MIME-Version: 1.0\n"
