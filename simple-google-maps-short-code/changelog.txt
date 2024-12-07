@@ -1,4 +1,10 @@
 == Changelog ==
+= 1.7 =
+* added optional geokey so you can properly restrict keys
+
+= 1.6 =
+* escape output to better protect against CSRF ans XSS exploits
+
 = 1.5.4 =
 * add filters dor developers
 * add option to disable zoom

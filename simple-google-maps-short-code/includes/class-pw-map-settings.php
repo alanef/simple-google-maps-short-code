@@ -58,14 +58,15 @@ class pw_map_settings {
                     <td>
                         <p><?php esc_html_e( 'Maps are displayed with the [pw_map] shortcode:', 'simple-google-maps-short-code' ); ?></p>
                         <p>
-                            <code><?php esc_html_e( '[pw_map address="New York City" key="YOUR API KEY"]', 'simple-google-maps-short-code' ); ?></code>
+                            <code><?php esc_html_e( '[pw_map address="New York City" key="YOUR API KEY"  geokey="YOUR GEO API KEY"]', 'simple-google-maps-short-code' ); ?></code>
                         </p>
                         <p><?php
-							esc_html_e( 'Google now requires that new accounts use an API key. You can register a free API key', 'simple-google-maps-short-code' );
+							esc_html_e( 'Google requires that accounts use an API key. You can register a free API key', 'simple-google-maps-short-code' );
 							?> <a target="_blank" href="
                         https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key"
                             ><?php esc_html_e( 'Use this link to Google to get an API key', 'simple-google-maps-short-code' ); ?></a>
                         </p>
+                        <p><?php esc_html_e( 'If you are going to restrict your keys (recommended) you will need to have "key" for Maps JavaScript API restricted to your domain and "geokey" for Geocoding API restricted to your server IP', 'simple-google-maps-short-code' ); ?> </p>
                         <p><?php esc_html_e( 'The plugin is Block Editor compatible, just use the shortcode block e.g. ', 'simple-google-maps-short-code' ); ?></p>
                         <img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) ) . 'images/shortcode-block.png'; ?>">
                     </td>

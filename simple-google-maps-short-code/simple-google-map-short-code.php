@@ -3,7 +3,7 @@
 Plugin Name: Simple Shortcode for Google Maps
 Plugin URI: https://wordpress.org/plugins/simple-google-maps-short-code/
 Description: Adds a simple Google Maps shortcode to any post, page or widget.
-Version: 1.6
+Version: 1.7
 Requires at least: 4.6
 Requires PHP: 5.6
 Author: Alan Fuller
@@ -63,6 +63,7 @@ function pw_map_shortcode( $atts ) {
 			'zoom'              => 15,
 			'disablecontrols'   => 'false',
 			'key'               => '',
+            'geokey'            => '',
 			'force'             => 'false',
 			'zoomcontrol'       => 'true',
 			'nozoom'            => 'false',
@@ -71,6 +72,10 @@ function pw_map_shortcode( $atts ) {
 		),
 		$atts
 	);
+
+    if (empty($atts['key'])) {
+        $atts['key'] = $atts['geokey'];
+    }
 
 	if ( 'true' === $atts['force'] ) {
 		$force = true;
@@ -92,7 +97,7 @@ function pw_map_shortcode( $atts ) {
 	if ( $address_array[0] ) {
 		$coordinates_array = array();
 		for ( $i = 0; $i < count( $address_array ); $i ++ ) {
-			$coordinates_array[ $i ] = pw_map_get_coordinates( $address_array[ $i ], $force, sanitize_text_field( $atts['key'] ) );
+			$coordinates_array[ $i ] = pw_map_get_coordinates( $address_array[ $i ], $force, sanitize_text_field( $atts['geokey'] ) );
 			if ( ! is_array( $coordinates_array[ $i ] ) ) {
 				$response = '';
 				if ( current_user_can( 'manage_options' ) ) {
@@ -188,8 +193,7 @@ function pw_map_get_coordinates( $address, $force_refresh = false, $api_key = ''
 
 		$args     = apply_filters( 'pw_map_query_args', array(
 			'key'     => $api_key,
-			'address' => urlencode( $address ),
-			'key'     => $api_key
+			'address' => urlencode( $address )
 		) );
 		$url      = add_query_arg( $args, 'https://maps.googleapis.com/maps/api/geocode/json' );
 		$response = wp_remote_get( $url );

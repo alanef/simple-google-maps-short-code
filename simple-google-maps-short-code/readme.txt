@@ -7,7 +7,7 @@ Tags: google maps, google maps shortcode, gmaps, maps, google maps plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 6.7
-Stable tag: 1.6
+Stable tag: 1.7
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
 
@@ -33,6 +33,10 @@ You can have multiple map pins, simply add multiple addresses separated by semi-
 Mandatory
 <li>address  - Description: The address you want pinned - Allowed values: any address that Google can find, multi addresses separated by ;</li>
 <li>key - Description: Your Google Maps API Key - Allowed values: valid key</li>
+<li>geokey - Description: Your Google Geocoding API Key - Allowed values: valid key</li>
+
+Why two key? If you restrict your API key to specific APIs you need to use the geokey to allow the geocoding to work ( enabled on the GeoCoding API, with your server IP ) and key
+enabled on the Maps JavaScript API
 
 
 Optional ( with default values)
@@ -108,7 +112,7 @@ Yes simply separate addresses with a semi-colon ;  the map will center on the fi
 
 Initial zoom can be controlled with the shortcode  option zoom=   the default is zoom=15  use for instance zoom=10 to zoom out
 
-`[pw_map address="New York City" zoom="8" key="YOUR API KEY"]`
+`[pw_map address="New York City" zoom="8" key="YOUR API KEY" "geokey"="YOUR GEO KEY"]`
 
 =Why do I get REQUEST_DENIED error?=
 
@@ -138,6 +142,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. Added [pw_map address="your address here" key="YOUR API KEY"] to any post or page.
 
 == Changelog ==
+= 1.7 =
+* added optional geokey so you can properly restrict keys
+
 = 1.6 =
 * escape output to better protect against CSRF ans XSS exploits
 
