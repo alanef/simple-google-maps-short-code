@@ -3,9 +3,9 @@
 Plugin Name: Simple Shortcode for Google Maps
 Plugin URI: https://wordpress.org/plugins/simple-google-maps-short-code/
 Description: Adds a simple Google Maps shortcode to any post, page or widget.
-Version: 1.7
+Version: 1.8.1
 Requires at least: 4.6
-Requires PHP: 5.6
+Requires PHP: 7.4
 Author: Alan Fuller
 Author URI: https://fullworks.net
 Text Domain: simple-google-maps-short-code
@@ -265,89 +265,6 @@ function pw_map_css() {
 
 add_action( 'wp_head', 'pw_map_css' );
 
-function pw_map_set_strings( $strings ) {
-	$strings = array(
-		esc_html__( 'Gift a Donation', 'simple-google-maps-short-code' ),
-		// 0
-		esc_html__( 'Hi, I\'m Alan and I maintain this free plugin, and I hope it solves your problems.', 'simple-google-maps-short-code' ),
-		// 1
-		esc_html__( 'It would really help me know that others find it useful and a great way of doing this is to gift me a small donation', 'simple-google-maps-short-code' ),
-		// 2
-		esc_html__( 'Gift a donation: select your desired option', 'simple-google-maps-short-code' ),
-		// 3
-		esc_html__( 'My Bitcoin donation wallet', 'simple-google-maps-short-code' ),
-		// 4
-		esc_html__( 'Gift a donation via PayPal', 'simple-google-maps-short-code' ),
-		// 5
-		esc_html__( 'My Bitcoin Cash address', 'simple-google-maps-short-code' ),
-		// 6
-		esc_html__( 'My Ethereum address', 'simple-google-maps-short-code' ),
-		// 7
-		esc_html__( 'My Dogecoin address', 'simple-google-maps-short-code' ),
-		// 8
-		esc_html__( 'Contribute', 'simple-google-maps-short-code' ),
-		// 9
-		esc_html__( 'Contribute to the Open Source Project in other ways', 'simple-google-maps-short-code' ),
-		// 10
-		esc_html__( 'Submit a review', 'simple-google-maps-short-code' ),
-		// 11
-		esc_html__( 'Translate to your language', 'simple-google-maps-short-code' ),
-		// 12
-		esc_html__( 'SUBMIT A REVIEW', 'simple-google-maps-short-code' ),
-		// 13
-		esc_html__( 'If you are happy with the plugin then we would love a review. Even if you are not so happy feedback is always useful, but if you have issues we would love you to make a support request first so we can try and help.', 'simple-google-maps-short-code' ),
-		// 14
-		esc_html__( 'SUPPORT FORUM', 'simple-google-maps-short-code' ),
-		// 15
-		esc_html__( 'Providing some translations for a plugin is very easy and can be done via the WordPress system. You can easily contribute to the community and you don\'t need to translate it all.', 'simple-google-maps-short-code' ),
-		// 16
-		esc_html__( 'TRANSLATE INTO YOUR LANGUAGE', 'simple-google-maps-short-code' ),
-		// 17
-		esc_html__( 'As an open source project you are welcome to contribute to the development of the software if you can. The development plugin is hosted on GitHub.', 'simple-google-maps-short-code' ),
-		// 18
-		esc_html__( 'CONTRIBUTE ON GITHUB', 'simple-google-maps-short-code' ),
-		// 19
-		esc_html__( 'Get Support', 'simple-google-maps-short-code' ),
-		// 20
-		esc_html__( 'WordPress SUPPORT FORUM', 'simple-google-maps-short-code' ),
-		// 21
-		esc_html__( 'Hi I\'m Alan and I support the free plugin', 'simple-google-maps-short-code' ),
-		// 22
-		esc_html__( 'for you.  You have been using the plugin for a while now and WordPress has probably been through several updates by now. So I\'m asking if you can help keep this plugin free, by donating a very small amount of cash. If you can that would be a fantastic help to keeping this plugin updated.', 'simple-google-maps-short-code' ),
-		// 23
-		esc_html__( 'Donate via this page', 'simple-google-maps-short-code' ),
-		// 24
-		esc_html__( 'Remind me later', 'simple-google-maps-short-code' ),
-		// 25
-		esc_html__( 'I have already donated', 'simple-google-maps-short-code' ),
-		// 26
-		esc_html__( 'I don\'t want to donate, dismiss this notice permanently', 'simple-google-maps-short-code' ),
-		// 27
-		esc_html__( 'Hi I\'m Alan and you have been using this plugin', 'simple-google-maps-short-code' ),
-		// 28
-		esc_html__( 'for a while - that is awesome! Could you please do me a BIG favor and give it a 5-star rating on WordPress? Just to help spread the word and boost my motivation..', 'simple-google-maps-short-code' ),
-		// 29
-		esc_html__( 'OK, you deserve it', 'simple-google-maps-short-code' ),
-		// 30
-		esc_html__( 'Maybe later', 'simple-google-maps-short-code' ),
-		// 31
-		esc_html__( 'Already done', 'simple-google-maps-short-code' ),
-		// 32
-		esc_html__( 'No thanks, dismiss this request', 'simple-google-maps-short-code' ),
-		// 33
-		esc_html__( 'Donate to Support', 'simple-google-maps-short-code' ),
-		// 34
-		esc_html__( 'Settings', 'simple-google-maps-short-code' ),
-		// 35
-		esc_html__( 'Help Develop', 'simple-google-maps-short-code' ),
-		// 36
-		esc_html__( 'Buy Me a Coffee makes supporting fun and easy. In just a couple of taps, you can donate (buy me a coffee) and leave a message. You don’t even have to create an account!', 'simple-google-maps-short-code' ),
-		// 37
-	);
 
-	return $strings;
-}
-
-add_filter( 'plugindonation_lib_strings_simple-google-maps-short-code', 'pw_map_set_strings' );
 
 

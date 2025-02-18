@@ -16,15 +16,9 @@
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
   },
-  "repositories": {
-    "plugindonations_lib": {
-      "type": "vcs",
-      "url": "https://github.com/alanef/plugindonation_lib"
-    }
-  },
   "require": {
     "php": ">=5.6",
-    "alanef/plugindonation_lib": "dev-master",
+    "alanef/free_plugin_lib": "^1.0.0",
     "ext-json": "*"
   }
 }

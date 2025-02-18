@@ -4,13 +4,9 @@
  * creates the settings page for the plugin
 */
 
-use AlanEFPluginDonation\PluginDonation;
 
 class pw_map_settings {
-	/**
-	 * @var PluginDonation
-	 */
-	private $donation;
+
 
 	public function __construct() {
 
@@ -20,13 +16,11 @@ class pw_map_settings {
 				'add_plugin_page'
 			) );
 		}
-		$this->donation = new PluginDonation(
-			'simple-google-maps-short-code',
-			'settings_page_simple-google-maps-settings',
-			'simple-google-maps-short-code/simple-google-map-short-code.php',
+		new \Fullworks_Free_Plugin_Lib\Main('simple-google-maps-short-code/simple-google-map-short-code.php',
 			admin_url( 'options-general.php?page=simple-google-maps-settings' ),
-			'Simple Shortcode for Google Maps'
-		);
+			'SSFGM-Free',
+			'settings_page_simple-google-maps-settings',
+			'Simple Shortcode for Google Maps');
 	}
 
 	public function add_plugin_page() {
@@ -50,7 +44,7 @@ class pw_map_settings {
         <div style="float:left;padding:20px; max-width: 1200px;margin-right: 10%;" class="postbox">
             <table class="form-table">
                 <tbody>
-				<?php $this->donation->display(); ?>
+				<?php do_action( 'ffpl_ad_display') ?>
                 <tr>
                     <th>
 						<?php esc_html_e( 'How to use', 'simple-google-maps-short-code' ); ?>

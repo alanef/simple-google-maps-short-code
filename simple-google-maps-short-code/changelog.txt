@@ -1,4 +1,10 @@
 == Changelog ==
+= 1.8.1 =
+* update free plugin lib
+
+= 1.8 =
+* remove donation lib and add free plugin lib
+
 = 1.7 =
 * added optional geokey so you can properly restrict keys
 
