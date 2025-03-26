@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-18 18:33+0000\n"
+"POT-Creation-Date: 2025-03-25 22:32+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -14,43 +14,43 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: simple-google-maps-short-code/simple-google-map-short-code.php:165, simple-google-maps-short-code/simple-google-map-short-code.php:105
+#: simple-google-maps-short-code/simple-google-map-short-code.php:168, simple-google-maps-short-code/simple-google-map-short-code.php:108
 msgid "This notice from Simple Google Maps Shortcode plugin is only shown to admins!"
 msgstr ""
 
-#: simple-google-maps-short-code/simple-google-map-short-code.php:167
+#: simple-google-maps-short-code/simple-google-map-short-code.php:170
 msgid "You do not seem to have provided any addresses!"
 msgstr ""
 
-#: simple-google-maps-short-code/simple-google-map-short-code.php:202
+#: simple-google-maps-short-code/simple-google-map-short-code.php:205
 msgid "Google maps not accessible."
 msgstr ""
 
-#: simple-google-maps-short-code/simple-google-map-short-code.php:208
+#: simple-google-maps-short-code/simple-google-map-short-code.php:211
 msgid "Google returned bad data."
 msgstr ""
 
-#: simple-google-maps-short-code/simple-google-map-short-code.php:237
+#: simple-google-maps-short-code/simple-google-map-short-code.php:240
 msgid "Unable to contact Google API service."
 msgstr ""
 
-#: simple-google-maps-short-code/simple-google-map-short-code.php:232
+#: simple-google-maps-short-code/simple-google-map-short-code.php:235
 msgid "Something went wrong while retrieving your map, please ensure you have entered the short code correctly. Address:"
 msgstr ""
 
-#: simple-google-maps-short-code/simple-google-map-short-code.php:233
+#: simple-google-maps-short-code/simple-google-map-short-code.php:236
 msgid "Status:"
 msgstr ""
 
-#: simple-google-maps-short-code/simple-google-map-short-code.php:233, simple-google-maps-short-code/simple-google-map-short-code.php:230
+#: simple-google-maps-short-code/simple-google-map-short-code.php:236, simple-google-maps-short-code/simple-google-map-short-code.php:233
 msgid "Google Msg:"
 msgstr ""
 
-#: simple-google-maps-short-code/simple-google-map-short-code.php:230
+#: simple-google-maps-short-code/simple-google-map-short-code.php:233
 msgid "Invalid request. Did you enter an address?"
 msgstr ""
 
-#: simple-google-maps-short-code/simple-google-map-short-code.php:228
+#: simple-google-maps-short-code/simple-google-map-short-code.php:231
 msgid "No location found for the entered address:"
 msgstr ""
 
@@ -82,10 +82,14 @@ msgstr ""
 msgid "Use this link to Google to get an API key"
 msgstr ""
 
-#: simple-google-maps-short-code/includes/class-pw-map-settings.php:63
+#: simple-google-maps-short-code/includes/class-pw-map-settings.php:65
+msgid "This is a PLAYGROUND demo version of the plugin, you will need to use unrestricted keys"
+msgstr ""
+
+#: simple-google-maps-short-code/includes/class-pw-map-settings.php:68
 msgid "If you are going to restrict your keys (recommended) you will need to have \"key\" for Maps JavaScript API restricted to your domain and \"geokey\" for Geocoding API restricted to your server IP"
 msgstr ""
 
-#: simple-google-maps-short-code/includes/class-pw-map-settings.php:64
+#: simple-google-maps-short-code/includes/class-pw-map-settings.php:69
 msgid "The plugin is Block Editor compatible, just use the shortcode block e.g. "
 msgstr ""

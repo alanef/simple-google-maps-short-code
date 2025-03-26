@@ -16,11 +16,11 @@ class pw_map_settings {
 				'add_plugin_page'
 			) );
 		}
-		new \Fullworks_Free_Plugin_Lib\Main('simple-google-maps-short-code/simple-google-map-short-code.php',
+		new \Fullworks_Free_Plugin_Lib\Main( 'simple-google-maps-short-code/simple-google-map-short-code.php',
 			admin_url( 'options-general.php?page=simple-google-maps-settings' ),
 			'SSFGM-Free',
 			'settings_page_simple-google-maps-settings',
-			'Simple Shortcode for Google Maps');
+			'Simple Shortcode for Google Maps' );
 	}
 
 	public function add_plugin_page() {
@@ -44,7 +44,7 @@ class pw_map_settings {
         <div style="float:left;padding:20px; max-width: 1200px;margin-right: 10%;" class="postbox">
             <table class="form-table">
                 <tbody>
-				<?php do_action( 'ffpl_ad_display') ?>
+				<?php do_action( 'ffpl_ad_display' ) ?>
                 <tr>
                     <th>
 						<?php esc_html_e( 'How to use', 'simple-google-maps-short-code' ); ?>
@@ -60,6 +60,11 @@ class pw_map_settings {
                         https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key"
                             ><?php esc_html_e( 'Use this link to Google to get an API key', 'simple-google-maps-short-code' ); ?></a>
                         </p>
+						<?php if ( defined( 'SGMSC_DEMO' ) && SGMSC_DEMO ) { ?>
+                                <br />
+                        <p><strong></strong><?php esc_html_e( 'This is a PLAYGROUND demo version of the plugin, you will need to use unrestricted keys', 'simple-google-maps-short-code' ); ?></p></strong>
+                            <br />
+						<?php } ?>
                         <p><?php esc_html_e( 'If you are going to restrict your keys (recommended) you will need to have "key" for Maps JavaScript API restricted to your domain and "geokey" for Geocoding API restricted to your server IP', 'simple-google-maps-short-code' ); ?> </p>
                         <p><?php esc_html_e( 'The plugin is Block Editor compatible, just use the shortcode block e.g. ', 'simple-google-maps-short-code' ); ?></p>
                         <img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) ) . 'images/shortcode-block.png'; ?>">

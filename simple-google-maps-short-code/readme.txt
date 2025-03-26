@@ -7,7 +7,7 @@ Tags: google maps, google maps shortcode, gmaps, maps, google maps plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 6.7
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
 
@@ -21,13 +21,13 @@ This plugin will enable a simple shortcode that you can use for embedding Google
 
 Maps are displayed with the [pw_map] shortcode:
 
-`[pw_map address="New York City" key="YOUR API KEY"]`
+`[pw_map address="New York City" key="YOUR Map JS API KEY" geokey="YOUR Geo API KEY"]`
 
 Google now requires that new accounts use an API key. You can register a free API key [here](https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key).
 
 You can have multiple map pins, simply add multiple addresses separated by semi-colon `;`
 
-`[pw_map address="Statue of Liberty National Monument NYC;Empire State Building, New York, NY, USA" key="YOUR API KEY"]`
+`[pw_map address="Statue of Liberty National Monument NYC;Empire State Building, New York, NY, USA" key="YOUR Map JS API KEY" geokey="YOUR Geo API KEY"]`
 
 === All Shortcode Options ===
 Mandatory
@@ -35,8 +35,8 @@ Mandatory
 <li>key - Description: Your Google Maps API Key - Allowed values: valid key</li>
 <li>geokey - Description: Your Google Geocoding API Key - Allowed values: valid key</li>
 
-Why two key? If you restrict your API key to specific APIs you need to use the geokey to allow the geocoding to work ( enabled on the GeoCoding API, with your server IP ) and key
-enabled on the Maps JavaScript API
+Why two key? You should restrict your API keys to avoid abuse. You need to use the geokey to allow the geocoding to work, enabled on the GeoCoding API, restricted to your server IP, and key
+enabled on the Maps JavaScript API restricted to your website domain(s).
 
 
 Optional ( with default values)
@@ -142,6 +142,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. Added [pw_map address="your address here" key="YOUR API KEY"] to any post or page.
 
 == Changelog ==
+= 1.8.2 =
+* allow for one key to be used for both geocoding and maps
+
 = 1.8.1 =
 * update free plugin lib
 

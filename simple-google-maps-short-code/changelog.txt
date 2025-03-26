@@ -1,4 +1,7 @@
 == Changelog ==
+= 1.8.2 =
+* allow for one key to be used for both geocoding and maps
+
 = 1.8.1 =
 * update free plugin lib
 
