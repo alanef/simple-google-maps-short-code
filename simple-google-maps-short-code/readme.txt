@@ -6,8 +6,8 @@ Contributors: fullworks,alanfuller
 Tags: google maps, google maps shortcode, gmaps, maps, google maps plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 6.7
-Stable tag: 1.8.2
+Tested up to: 7.0
+Stable tag: 1.8.3
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
 
@@ -31,7 +31,7 @@ You can have multiple map pins, simply add multiple addresses separated by semi-
 
 === All Shortcode Options ===
 Mandatory
-<li>address  - Description: The address you want pinned - Allowed values: any address that Google can find, multi addresses separated by ;</li>
+<li>address  - Description: The address you want pinned - Allowed values: any address that Google can find, or coordinates as lat,lng (e.g. 40.7128,-74.0060), multi addresses separated by ;</li>
 <li>key - Description: Your Google Maps API Key - Allowed values: valid key</li>
 <li>geokey - Description: Your Google Geocoding API Key - Allowed values: valid key</li>
 
@@ -142,6 +142,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. Added [pw_map address="your address here" key="YOUR API KEY"] to any post or page.
 
 == Changelog ==
+= 1.8.3 =
+* allow coordinates (lat,lng) to be used directly as the address, skipping the geocoding lookup
+* tested up to WordPress 7.0
+
 = 1.8.2 =
 * allow for one key to be used for both geocoding and maps
 

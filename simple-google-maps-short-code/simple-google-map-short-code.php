@@ -3,7 +3,7 @@
 Plugin Name: Simple Shortcode for Google Maps
 Plugin URI: https://wordpress.org/plugins/simple-google-maps-short-code/
 Description: Adds a simple Google Maps shortcode to any post, page or widget.
-Version: 1.8.2
+Version: 1.8.3
 Requires at least: 4.6
 Requires PHP: 7.4
 Author: Alan Fuller
@@ -93,7 +93,7 @@ function pw_map_shortcode( $atts ) {
 	$address_array = explode( ';', $atts['address'] );
 // remove special characters
 	$address_array = array_map( function ( $string ) {
-		return preg_replace( "/[^A-Za-z0-9,\- ]/", '', $string );
+		return preg_replace( "/[^A-Za-z0-9,\-. ]/", '', $string );
 	}, $address_array );
 
 
@@ -187,6 +187,21 @@ add_shortcode( 'pw_map', 'pw_map_shortcode' );
  * @since       1.0
  */
 function pw_map_get_coordinates( $address, $force_refresh = false, $api_key = '' ) {
+
+	// If the address is already a "lat,lng" coordinate pair, use it directly
+	// and skip the Google Geocoding API call.
+	if ( preg_match( '/^\s*(-?\d{1,3}(?:\.\d+)?)\s*,\s*(-?\d{1,3}(?:\.\d+)?)\s*$/', $address, $matches ) ) {
+		$lat = (float) $matches[1];
+		$lng = (float) $matches[2];
+
+		if ( $lat >= -90 && $lat <= 90 && $lng >= -180 && $lng <= 180 ) {
+			return array(
+				'lat'     => $lat,
+				'lng'     => $lng,
+				'address' => $matches[1] . ',' . $matches[2],
+			);
+		}
+	}
 
 	$address_hash = md5( $address );
 
