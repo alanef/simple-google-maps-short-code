@@ -1,8 +1,14 @@
 {
-  "name": "alanef/simple-google-maps-short-code",
-  "description": "Wordpress plugin to display Google Maps",
-  "type": "wordpress-plugin",
+  "name": "fullworks/simple-google-maps-short-code-project",
+  "description": "Development project for the Simple Shortcode for Google Maps WordPress plugin",
+  "type": "project",
   "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "alan",
+      "email": "alan@fullworksplugins.com"
+    }
+  ],
   "config": {
     "platform": {
       "php": "7.4.33"
@@ -11,29 +17,42 @@
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
   },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*",
+    "wp-coding-standards/wpcs": ">=2.3.0",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "phpunit/phpunit": "^9.5",
+    "yoast/phpunit-polyfills": "^1.1",
+    "phpstan/phpstan": "*"
+  },
   "scripts": {
-    "post-update-cmd": [ "composer update -d simple-google-maps-short-code",
-      "npx gulp build" ],
-    "phpcs": "phpcs simple-google-maps-short-code -s --standard=phpcs_sec.xml --ignore=*/vendor/*  --extensions=php",
-    "compat:8.3": "./vendor/bin/phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=/vendor/*  --extensions=php --runtime-set testVersion 8.3",
-    "compat:8.2": "./vendor/bin/phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=/vendor/*  --extensions=php --runtime-set testVersion 8.2",
-    "compat:8.1": "./vendor/bin/phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=/vendor/*  --extensions=php --runtime-set testVersion 8.1",
-    "compat:8.0": "./vendor/bin/phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=/vendor/*  --extensions=php --runtime-set testVersion 8.0",
-    "compat:7.4": "./vendor/bin/phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=/vendor/*  --extensions=php --runtime-set testVersion 7.4",
-    "compat:5.6": "./vendor/bin/phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=/vendor/*  --extensions=php --runtime-set testVersion 5.6",
+    "post-update-cmd": [
+      "@plugin-update",
+      "@make-pot"
+    ],
+    "plugin-update": "if [ -f simple-google-maps-short-code/composer.json ]; then composer update -d simple-google-maps-short-code; fi",
+    "make-pot": "mkdir -p simple-google-maps-short-code/languages && wp i18n make-pot ./simple-google-maps-short-code ./simple-google-maps-short-code/languages/simple-google-maps-short-code.pot --skip-audit --exclude='vendor,includes/vendor,node_modules'",
+    "build": [
+      "if [ -f simple-google-maps-short-code/composer.json ]; then composer install -d simple-google-maps-short-code --no-dev; fi",
+      "mkdir -p zipped",
+      "wp dist-archive simple-google-maps-short-code zipped/simple-google-maps-short-code-free.zip --force"
+    ],
+    "phpcs": "phpcs simple-google-maps-short-code -s --standard=phpcs_sec.xml --ignore=*/vendor/* --extensions=php",
+    "compat:8.4": "phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=*/vendor/* --extensions=php --runtime-set testVersion 8.4",
+    "compat:8.3": "phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=*/vendor/* --extensions=php --runtime-set testVersion 8.3",
+    "compat:8.2": "phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=*/vendor/* --extensions=php --runtime-set testVersion 8.2",
+    "compat:8.1": "phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=*/vendor/* --extensions=php --runtime-set testVersion 8.1",
+    "compat:8.0": "phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=*/vendor/* --extensions=php --runtime-set testVersion 8.0",
+    "compat:7.4": "phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=*/vendor/* --extensions=php --runtime-set testVersion 7.4",
     "check": [
+      "@compat:8.4",
       "@compat:8.3",
       "@compat:8.2",
       "@compat:8.1",
       "@compat:8.0",
       "@compat:7.4",
       "@phpcs"
-    ]
-  },
-  "require-dev": {
-    "squizlabs/php_codesniffer": "3.*",
-    "wp-coding-standards/wpcs": "^3.0",
-    "phpcompatibility/phpcompatibility-wp": "*",
-    "phpstan/phpstan": "*"
+    ],
+    "test": "npm test"
   }
 }

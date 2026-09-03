@@ -1,6 +1,23 @@
 .idea/
-.directory/
+.vscode/
+.directory
+.DS_Store
 dist/
+build/
 zipped/
+tmp-build/
 node_modules/
+/vendor/
+/simple-google-maps-short-code/vendor/
+/simple-google-maps-short-code/includes/vendor/
+.phpunit.result.cache
+*.phpunit.result.cache
+.wp-env.override.json
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+# repository specific
+.directory/
 simple-google-maps-short-code/vendor/
