@@ -35,8 +35,7 @@
     "build": [
       "if [ -f simple-google-maps-short-code/composer.json ]; then composer install -d simple-google-maps-short-code --no-dev; fi",
       "mkdir -p zipped",
-      "wp dist-archive simple-google-maps-short-code zipped/simple-google-maps-short-code-free.zip --force",
-      "zip -qd zipped/simple-google-maps-short-code-free.zip simple-google-maps-short-code/.distignore >/dev/null 2>&1 || true"
+      "wp dist-archive simple-google-maps-short-code zipped/simple-google-maps-short-code-free.zip --force"
     ],
     "phpcs": "phpcs simple-google-maps-short-code -s --standard=phpcs_sec.xml --ignore=*/vendor/* --extensions=php",
     "compat:8.4": "phpcs simple-google-maps-short-code -s --standard=PHPCompatibilityWP --ignore=*/vendor/* --extensions=php --runtime-set testVersion 8.4",
