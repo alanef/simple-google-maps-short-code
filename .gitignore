@@ -9,6 +9,7 @@ tmp-build/
 node_modules/
 /vendor/
 /simple-google-maps-short-code/vendor/
+/simple-google-maps-short-code/composer.lock
 /simple-google-maps-short-code/includes/vendor/
 .phpunit.result.cache
 *.phpunit.result.cache
