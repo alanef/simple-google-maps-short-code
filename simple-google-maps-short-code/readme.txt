@@ -8,6 +8,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 7.0
 Stable tag: 1.8.3
+Type: free
 
 A simple shortcode for embedding Google Maps in any WordPress post, page or widget.
 
