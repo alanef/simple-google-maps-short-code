@@ -1,0 +1,27 @@
+{
+  "scan_date": "2026-10-23T10:45:00Z",
+  "scanned_by": "AI Assistant",
+  "issue_id": "PLUGINS_SMALL-7",
+  "files_analyzed": [
+    "free_plugin_lib:src/Classes/Email.php",
+    "free_plugin_lib:src/Main.php",
+    "simple-google-maps-short-code/uninstall.php",
+    "simple-google-maps-short-code/composer.json"
+  ],
+  "commit_range": {
+    "free_plugin_lib": "0885daf..4f34052",
+    "simple-google-maps-short-code": "0261795"
+  },
+  "findings": [],
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0,
+    "total": 0
+  },
+  "recommendation": "PASS",
+  "blocking_issues": [],
+  "notes": "Map lookup change uses only the developer-supplied shortname; no new input. handle_skip_optin gains a manage_options check (A01 hardening). uninstall.php guards on WP_UNINSTALL_PLUGIN and deletes one site option. No secrets, no new endpoints, no new dependencies."
+}
