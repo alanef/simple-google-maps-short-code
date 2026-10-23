@@ -6,6 +6,8 @@
 * Fixed: until you choose Allow or Skip, opening the plugin's settings page now shows the opt-in screen; before, it never appeared there
 * Fixed: deleting the plugin now removes the opt-in status it stored
 * Changed: the notice now links straight to the opt-in screen instead of the settings page
+* Changed: the Google Maps script now loads through WordPress's script loader, in the page footer, once per API key instead of once per map
+* Changed: a map rendered after the page footer, or in an AJAX or REST response, still prints its script inline as before. If such content is added to the page by JavaScript that doesn't run inserted scripts, the map won't start, which was also true before
 * Changed: tested up to WordPress 7.1
 * Changed: updated the bundled opt-in library to 1.3.3
 

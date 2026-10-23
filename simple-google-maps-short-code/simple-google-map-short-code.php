@@ -130,13 +130,18 @@ function pw_map_shortcode( $atts ) {
 			$map_options['minZoom'] = $atts['zoom'];
 			$map_options['maxZoom'] = $atts['zoom'];
 		}
-        ob_start(); ?>
+		// One API script per key, printed in the footer by the script loader; each map's
+		// init code runs after it. The handle is per key because keys can differ per shortcode.
+		$api_handle = 'pw-map-google-maps-' . substr( md5( $atts['key'] ), 0, 10 );
+		wp_enqueue_script(
+			$api_handle,
+			add_query_arg( 'key', rawurlencode( $atts['key'] ), 'https://maps.googleapis.com/maps/api/js' ),
+			array(),
+			null,
+			true
+		);
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo esc_attr( $atts['key'] ); ?>"
-                type="text/javascript"></script>
-        <div class="pw_map_canvas" id="<?php echo esc_attr( $map_id ); ?>"
-             style="height: <?php echo esc_attr( $atts['height'] ); ?>; width: <?php echo esc_attr( $atts['width'] ); ?>"></div>
-        <script type="text/javascript">
+		ob_start(); ?>
             var map_<?php echo esc_attr( $map_id ); ?>;
 
             function pw_run_map_<?php echo esc_attr( $map_id ); ?>() {
@@ -158,8 +163,27 @@ function pw_map_shortcode( $atts ) {
             }
 
             pw_run_map_<?php echo esc_attr( $map_id ); ?>();
-        </script>
 		<?php
+		$map_init = ob_get_clean();
+
+		// Rendered after the footer scripts were printed, or outside a page (AJAX, REST):
+		// print the script now, as the plugin did before it used the script loader.
+		$print_now = did_action( 'wp_print_footer_scripts' ) || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || ( defined( 'REST_REQUEST' ) && REST_REQUEST );
+
+		ob_start(); ?>
+
+        <div class="pw_map_canvas" id="<?php echo esc_attr( $map_id ); ?>"
+             style="height: <?php echo esc_attr( $atts['height'] ); ?>; width: <?php echo esc_attr( $atts['width'] ); ?>"></div>
+		<?php
+		if ( $print_now && wp_script_is( $api_handle, 'done' ) ) {
+			pw_map_print_inline_script( $map_init );
+		} else {
+			wp_add_inline_script( $api_handle, $map_init, 'after' );
+			if ( $print_now ) {
+				wp_print_scripts( $api_handle );
+			}
+		}
+
 		return ob_get_clean();
 	} else {
 		$response = '';
@@ -176,6 +200,21 @@ function pw_map_shortcode( $atts ) {
 }
 
 add_shortcode( 'pw_map', 'pw_map_shortcode' );
+
+/**
+ * Prints a map's init code when its API script has already been printed
+ *
+ * @access      private
+ * @return      void
+ * @since       1.9
+ */
+function pw_map_print_inline_script( $javascript ) {
+	if ( function_exists( 'wp_print_inline_script_tag' ) ) {
+		wp_print_inline_script_tag( $javascript );
+	} else {
+		echo "<script>\n" . $javascript . "\n</script>\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built from escaped values above
+	}
+}
 
 /**
  * Retrieve coordinates for an address
