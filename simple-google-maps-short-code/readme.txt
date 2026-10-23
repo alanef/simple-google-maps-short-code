@@ -6,7 +6,7 @@ Contributors: fullworks,alanfuller
 Tags: google maps, google maps shortcode, gmaps, maps, google maps plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 1.8.3
 Type: free
 
