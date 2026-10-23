@@ -1,5 +1,5 @@
 == Changelog ==
-= Unreleased =
+= 1.8.4 =
 * Fixed: "Allow & Continue" on the opt-in screen subscribed nobody and recorded you as opted out; it now subscribes you as intended
 * Fixed: the settings notice could not be dismissed and kept coming back on every page load
 * Fixed: on sites running other Fullworks free plugins, the opt-in notice and menu could belong to the wrong plugin
