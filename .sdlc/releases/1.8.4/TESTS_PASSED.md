@@ -1,7 +1,7 @@
 # Tests Passed: 1.8.4
 
-**Date:** 2026-10-23T10:33:08Z
-**Commit:** d38fd39020d3dc7515fa65bd84e0670b5a0fa2b9
+**Date:** 2026-11-08T11:31:05Z
+**Commit:** 0cd0a29371151c0808a0c92056a9878ec98b6e23
 **Tracked changes at run time:** 1
 
 | Gate | Result |
@@ -12,10 +12,9 @@
 | version consistency | pass |
 | build (composer run build) | pass |
 | Plugin Check | not run locally (no plugin-check script); CI runs it on the built zip |
-| PHPUnit (npm test) | pass |
+| PHPUnit (npm test) | SKIPPED: wp-env not running (--no-wp-env); CI tests job is the gate |
 
 PHPUnit summaries:
 
-    OK (3 tests, 6 assertions)
 
 Full output: tests.log (not committed).
