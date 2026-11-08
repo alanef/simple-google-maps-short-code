@@ -160,7 +160,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * added optional geokey so you can properly restrict keys
 
 = 1.6 =
-* escape output to better protect against CSRF ans XSS exploits
+* Improved security
 
 = 1.5.4 =
 * add filters for developers
